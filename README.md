@@ -1,7 +1,15 @@
 # Real-Time Twitter Word Cloud Trends Visualisation
 
-## Task
-Real-time visualisation of current trends about a topic from tweets.  
+## Features
+- Search for a topic on Twitter (stream of tweets are real-time processed and the values are computed since search has started).
+- Change word size mapping to word count or mean followers count of word authors. 
+- Interact with word cloud by panning and zooming.
+- Move up to 50 seconds back in time by moving the timeline slider.
+
+## Use cases
+- Find current trends about a topic on Twitter.
+- Discover credibility of words' authors by mean followers count of a word
+- See total tweets count in a topic and compare change in word usage during a time.
 
 ## Technologies
 ![architecture-schema](architecture-schema.png)
