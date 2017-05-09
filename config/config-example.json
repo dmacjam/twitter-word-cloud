@@ -1,0 +1,8 @@
+{
+  "consumer_key" : "<your_consumer_api_key>",
+  "consumer_secret" : "<your_consumer_secret>",
+  "access_token" : "<your_access_token>",
+  "access_token_secret" : "<your_access_token_secret>",
+  "docker_kafka_ip": "172.18.0.2:9092",
+  "topic_name": "tweets"
+}

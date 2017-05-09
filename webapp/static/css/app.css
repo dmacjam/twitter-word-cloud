@@ -1,0 +1,109 @@
+body {
+  margin: 0;
+  background: #222;
+  min-width: 960px;
+  height: 100%;
+  width: 100%;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0;
+}
+
+#name{
+    position: absolute;
+    top: 1%;
+    left: 0;
+    width: 15%;
+    height: 12%;
+    text-align: center;
+    color: #3498db;
+}
+
+#legend{
+    position: absolute;
+    top: 0;
+    left: 85%;
+    width: 15%;
+    height: 12%;
+    color: #f3f3f3;
+}
+
+#tweet_details {
+    position:absolute;
+    top: 12%;
+    width: 20%;
+    min-height: 88%;
+    max-height: 88%;
+    padding:0px;
+    border-right: 1px solid rgba(0,0,0,0.40);
+    color: white;
+}
+
+#chart {
+    position:absolute;
+    top:12%;
+    width:80%;
+    left:20%;
+    min-height: 88%;
+    max-height: 88%;
+}
+
+.filtering {
+    display: inline;
+    width: 70px;
+}
+
+.scrollable {
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+#filtered-info{
+  color: white;
+  font-size: 16px;
+  margin-left: 2%;
+}
+
+
+#custom-handle {
+  width: 5em;
+  height: 1.6em;
+  top: 50%;
+  margin-top: -.8em;
+  text-align: center;
+  line-height: 1.6em;
+}
+
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.overlay {
+    background-color: rgba(0,0,0,0.6);
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.color-box {
+  width: 15px;
+  height: 15px;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, .2);
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Twitter WordCloud Trends</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/css/app.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.12.3/math.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="http://d3js.org/d3.v3.js" charset="utf-8"></script>
+  <script src="/static/js/main.js"></script>
+  <!-- D3 Word Cloud placement by Eric Coopey: http://bl.ocks.org/ericcoopey/6382449 -->
+  <script src="/static/js/onReady.js"></script>
+</head>
+
+<body>
+  <h4 id="name">Twitter WordCloud Trends</h4>
+  <div id="legend">
+    <h4>Word color:</h4>
+    <div class="color-box" style="background: #49ff00;"><span style="margin-left: 17px">New</span></div>
+    <div class="color-box" style="background: #00cdff;"><span style="margin-left: 17px">Stable</span></div>
+    <div class="color-box" style="background: #ff1e00;"><span style="margin-left: 17px">Trending</span></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="input-group">
+          <input id="search-topic" type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="search-btn">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </span>
+        </div><!-- /input-group -->
+      </div><!-- /.col-lg-6 -->
+      <div class="col-lg-5">
+          <button class="btn btn-default" type="button" id="pause-btn">
+            <i class="fa fa-pause" aria-hidden="true"></i>
+          </button>
+          <button class="btn btn-default" type="button" id="reset-btn">
+            <i class="fa fa-refresh" aria-hidden="true"></i>
+          </button>
+
+          <input type="text" id="min-filter" class="form-control filtering" placeholder="Min" style="margin-left: 3%;">
+          <input type="text" id="max-filter" class="form-control filtering" placeholder="Max">
+          <button class="btn btn-default" type="button" id="filter-btn">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+          </button>
+        <span id="filtered-info" style="font-size: 11px;"></span>
+      </div>
+      <div class="col-lg-3" style="color: white">
+        <h4>Word size:</h4>
+        <label class="radio-inline"><input type="radio" name="word-size" checked value="word-count">Word count</label>
+        <label class="radio-inline"><input type="radio" name="word-size" value="followers">Followers count</label>
+      </div>
+    </div><!-- /.row -->
+    <div class="row">
+      <div class="col-lg-1">
+        <button class="btn btn-default" type="button" id="help-btn" data-toggle="modal" data-target="#infoModal">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="col-lg-6" style="margin-top: 1%">
+        <div id="slider">
+          <div id="custom-handle" class="ui-slider-handle"></div>
+        </div>
+      </div>
+      <div class="col-lg-2" style="margin-top: 1%">
+        <div id="seconds" style="color: white; margin-left: 20%;"></div>
+      </div>
+      <div class="col-lg-3" style="margin-top: 1%; color: white">
+        Processed tweets:&nbsp;<span id="tweets-count">0</span>
+      </div>
+    </div>
+  </div>
+  <div id="chart"></div>
+  <div id="tweet_details" class="scrollable">
+    <h3 style="text-align: center" id="tweet-word">Related tweets</h3>
+  </div>
+  <div class="overlay">
+    <div id="loader"></div>
+  </div>
+
+  <div id="infoModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">About</h4>
+        </div>
+        <div class="modal-body" style="background-color: white">
+          <p style="font-size: 18px;">
+            Live visualisation of current trends about any topic from tweets.
+            Search for a topic and interact with word cloud by by panning and zooming.
+            All of the tweets are real-time processed and the values are computed since you searched.
+            Moreover, it is possible to move up to 50 seconds back in time by moving the timeline slider.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
