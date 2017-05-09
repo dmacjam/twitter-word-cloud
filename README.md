@@ -13,13 +13,14 @@
 
 ## Technologies
 ![architecture-schema](architecture-schema.png)
+Note: Kafka and Zookeeper are running in Docker containers.
 
 ## Preview
 ![screenshot](screenshot.png)
 
 ## Install
 - `pip install -r requirements.txt`
-- docker-compose
+- docker, docker-compose
 - Spark (pyspark) - `spark-2.0.2-bin-hadoop2.7`
 - Redis
 
@@ -27,8 +28,8 @@
 ## Getting started
 1. Create new [developer app](https://apps.twitter.com/) and create `config/config.json` file with 
 your configuration following `config/config-example.json` format.
-    - consumer_key, consumer_secret, access_token, access_token_secret - from Twitter apps
-    - docker_kafka_ip - ip address of docker container with Kafka, same as `KAFKA_ADVERTISED_HOST_NAME` 
+    - *consumer_key, consumer_secret, access_token, access_token_secret* - from Twitter apps
+    - *docker_kafka_ip* - ip address of docker container with Kafka, same as `KAFKA_ADVERTISED_HOST_NAME` 
     in `docker-compose.yml` (see logs in docker container for IP address, e.g. `Established session 0x15bec44028b0001 
     with negotiated timeout 30000 for client /172.19.0.2:37602` )
 2. Start docker compose containers.
